@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://janmqvhvwafrklgdeqll.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "evan-s-futurecraft",
+      "version": "0.1.0",
+      "title": "Evan's FutureCraft"
+    },
+    "tools": [
+      {
+        "name": "list_content",
+        "title": "List portfolio content",
+        "description": "Read rows from a portfolio content collection (projects, blog posts, skills, education, and more).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "table": {
+              "type": "string",
+              "enum": [
+                "about",
+                "achievements",
+                "blog_posts",
+                "certificates",
+                "education",
+                "experience",
+                "gallery",
+                "profile",
+                "projects",
+                "services",
+                "site_settings",
+                "skill_categories",
+                "skills",
+                "testimonials"
+              ],
+              "description": "Content collection to read."
+            },
+            "limit": {
+              "default": 20,
+              "description": "Maximum rows to return.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "search": {
+              "description": "Optional text to match against the row's title or name.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "table"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_project",
+        "title": "Create project",
+        "description": "Add a new project to the portfolio. Requires an admin account.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Project title."
+            },
+            "short_description": {
+              "description": "One-line summary shown on the project card.",
+              "type": "string"
+            },
+            "long_description": {
+              "description": "Full project description.",
+              "type": "string"
+            },
+            "category": {
+              "description": "Project category, e.g. 'Web App'.",
+              "type": "string"
+            },
+            "tech_stack": {
+              "description": "Technologies used.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "github_url": {
+              "type": "string"
+            },
+            "live_url": {
+              "type": "string"
+            },
+            "thumbnail_url": {
+              "type": "string"
+            },
+            "is_featured": {
+              "type": "boolean"
+            },
+            "status": {
+              "description": "Publication status, e.g. 'published' or 'draft'.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "title"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "update_project",
+        "title": "Update project",
+        "description": "Update fields on an existing portfolio project by id. Requires an admin account.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Project id (uuid)."
+            },
+            "title": {
+              "type": "string"
+            },
+            "short_description": {
+              "type": "string"
+            },
+            "long_description": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "tech_stack": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "github_url": {
+              "type": "string"
+            },
+            "live_url": {
+              "type": "string"
+            },
+            "thumbnail_url": {
+              "type": "string"
+            },
+            "is_featured": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_messages",
+        "title": "List contact messages",
+        "description": "Read contact-form messages sent through the portfolio. Admin only.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "default": 20,
+              "description": "Maximum messages to return.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "status": {
+              "description": "Filter by status, e.g. 'unread'.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "update_message_status",
+        "title": "Update message status",
+        "description": "Mark a contact message as read, replied, or archived. Admin only.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Message id (uuid)."
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "unread",
+                "read",
+                "replied",
+                "archived"
+              ],
+              "description": "New status."
+            }
+          },
+          "required": [
+            "id",
+            "status"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_blog_post",
+        "title": "Create blog post",
+        "description": "Create a blog post on the portfolio. Requires an admin account.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Post title."
+            },
+            "slug": {
+              "description": "URL slug.",
+              "type": "string"
+            },
+            "excerpt": {
+              "type": "string"
+            },
+            "content": {
+              "description": "Post body in markdown.",
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "status": {
+              "description": "'draft' or 'published'.",
+              "type": "string"
+            },
+            "is_featured": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "title"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
