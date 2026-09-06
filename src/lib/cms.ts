@@ -53,28 +53,35 @@ export function useCollection(
   const qc = useQueryClient();
 
   useEffect(() => {
-    // Unique channel name per subscriber — reusing a name across components
-    // throws "cannot add postgres_changes callbacks after subscribe()".
-    const channel = supabase
-      .channel(`cms-${table}-${Math.random().toString(36).slice(2)}`)
-      .on("postgres_changes", { event: "*", schema: "public", table }, () => {
-        qc.invalidateQueries({ queryKey: ["cms", table] });
-      })
-      .subscribe();
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    try {
+      const channel = supabase
+        .channel(`cms-${table}-${Math.random().toString(36).slice(2)}`)
+        .on("postgres_changes", { event: "*", schema: "public", table }, () => {
+          qc.invalidateQueries({ queryKey: ["cms", table] });
+        })
+        .subscribe();
+      return () => {
+        try {
+          supabase.removeChannel(channel);
+        } catch {}
+      };
+    } catch {
+      return () => {};
+    }
   }, [table, qc]);
-
 
   return useQuery({
     queryKey: ["cms", table, orderBy, filter?.join(":") ?? ""],
     queryFn: async (): Promise<Row[]> => {
-      let q = db().from(table).select("*").order(orderBy, { ascending });
-      if (filter) q = q.eq(filter[0], filter[1]);
-      const { data, error } = await q;
-      if (error) throw error;
-      return (data ?? []) as Row[];
+      try {
+        let q = db().from(table).select("*").order(orderBy, { ascending });
+        if (filter) q = q.eq(filter[0], filter[1]);
+        const { data, error } = await q;
+        if (error) return [];
+        return (data ?? []) as Row[];
+      } catch {
+        return [];
+      }
     },
   });
 }
@@ -83,12 +90,17 @@ export function useSingleton(table: string) {
   return useQuery({
     queryKey: ["cms", table, "singleton"],
     queryFn: async (): Promise<Row | null> => {
-      const { data, error } = await db().from(table).select("*").limit(1).maybeSingle();
-      if (error) throw error;
-      return (data ?? null) as Row | null;
+      try {
+        const { data, error } = await db().from(table).select("*").limit(1).maybeSingle();
+        if (error) return null;
+        return (data ?? null) as Row | null;
+      } catch {
+        return null;
+      }
     },
   });
 }
+
 
 /* ---------------- writes ---------------- */
 
