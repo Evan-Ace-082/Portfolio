@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";import{i as t,r as n}from"./managers-DN_hyLRs.js";import{t as r}from"./admin-schema-5_8NjV92.js";var i=e(),a=()=>(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{title:`About`,sub:`Heading, description, counters and CV button.`}),(0,i.jsx)(t,{table:`about`,title:`About`,fields:r})]});export{a as component};

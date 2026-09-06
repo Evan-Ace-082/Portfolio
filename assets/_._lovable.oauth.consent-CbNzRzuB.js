@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";var t=e(),n=({error:e})=>(0,t.jsx)(`main`,{className:`min-h-screen flex items-center justify-center bg-background p-6`,children:(0,t.jsxs)(`p`,{className:`text-muted-foreground`,children:[`Could not load this authorization request: `,String(e?.message??e)]})});export{n as errorComponent};

@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";import{i as t,r as n}from"./managers-DN_hyLRs.js";import{p as r}from"./admin-schema-5_8NjV92.js";var i=e(),a=()=>(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{title:`Website Settings`,sub:`Branding, footer and contact details.`}),(0,i.jsx)(t,{table:`site_settings`,title:`Settings`,fields:r})]});export{a as component};
