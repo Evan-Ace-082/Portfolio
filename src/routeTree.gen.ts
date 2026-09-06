@@ -9,38 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as McpRouteImport } from './routes/mcp'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminLoginRouteImport } from './routes/admin/login'
-import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as McpRouteImport } from './routes/mcp'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AdminPanelRouteRouteImport } from './routes/admin/_panel/route'
-import { Route as AdminPanelIndexRouteImport } from './routes/admin/_panel/index'
-import { Route as AdminPanelTestimonialsRouteImport } from './routes/admin/_panel/testimonials'
-import { Route as AdminPanelSkillsRouteImport } from './routes/admin/_panel/skills'
-import { Route as AdminPanelSettingsRouteImport } from './routes/admin/_panel/settings'
-import { Route as AdminPanelServicesRouteImport } from './routes/admin/_panel/services'
-import { Route as AdminPanelSeoRouteImport } from './routes/admin/_panel/seo'
-import { Route as AdminPanelSecurityRouteImport } from './routes/admin/_panel/security'
-import { Route as AdminPanelResumeRouteImport } from './routes/admin/_panel/resume'
-import { Route as AdminPanelProjectsRouteImport } from './routes/admin/_panel/projects'
-import { Route as AdminPanelProfileRouteImport } from './routes/admin/_panel/profile'
-import { Route as AdminPanelMessagesRouteImport } from './routes/admin/_panel/messages'
-import { Route as AdminPanelHobbiesRouteImport } from './routes/admin/_panel/hobbies'
-import { Route as AdminPanelGalleryRouteImport } from './routes/admin/_panel/gallery'
-import { Route as AdminPanelExperienceRouteImport } from './routes/admin/_panel/experience'
-import { Route as AdminPanelEducationRouteImport } from './routes/admin/_panel/education'
-import { Route as AdminPanelCertificatesRouteImport } from './routes/admin/_panel/certificates'
-import { Route as AdminPanelBlogRouteImport } from './routes/admin/_panel/blog'
-import { Route as AdminPanelAchievementsRouteImport } from './routes/admin/_panel/achievements'
-import { Route as AdminPanelAboutRouteImport } from './routes/admin/_panel/about'
-import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
+import { Route as AdminPanelIndexRouteImport } from './routes/admin/_panel/index'
+import { Route as AdminPanelAboutRouteImport } from './routes/admin/_panel/about'
+import { Route as AdminPanelAchievementsRouteImport } from './routes/admin/_panel/achievements'
+import { Route as AdminPanelBlogRouteImport } from './routes/admin/_panel/blog'
+import { Route as AdminPanelCertificatesRouteImport } from './routes/admin/_panel/certificates'
+import { Route as AdminPanelEducationRouteImport } from './routes/admin/_panel/education'
+import { Route as AdminPanelExperienceRouteImport } from './routes/admin/_panel/experience'
+import { Route as AdminPanelGalleryRouteImport } from './routes/admin/_panel/gallery'
+import { Route as AdminPanelHobbiesRouteImport } from './routes/admin/_panel/hobbies'
+import { Route as AdminPanelMessagesRouteImport } from './routes/admin/_panel/messages'
+import { Route as AdminPanelProfileRouteImport } from './routes/admin/_panel/profile'
+import { Route as AdminPanelProjectsRouteImport } from './routes/admin/_panel/projects'
+import { Route as AdminPanelResumeRouteImport } from './routes/admin/_panel/resume'
+import { Route as AdminPanelSecurityRouteImport } from './routes/admin/_panel/security'
+import { Route as AdminPanelSeoRouteImport } from './routes/admin/_panel/seo'
+import { Route as AdminPanelServicesRouteImport } from './routes/admin/_panel/services'
+import { Route as AdminPanelSettingsRouteImport } from './routes/admin/_panel/settings'
+import { Route as AdminPanelSkillsRouteImport } from './routes/admin/_panel/skills'
+import { Route as AdminPanelTestimonialsRouteImport } from './routes/admin/_panel/testimonials'
 
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -48,26 +48,21 @@ const McpRoute = McpRouteImport.update({
   path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Char91DotwellKnownChar93OauthProtectedResourceRoute =
-  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
-    id: '/.well-known/oauth-protected-resource',
-    path: '/.well-known/oauth-protected-resource',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const Char91DotmcpChar93ListToolsRoute =
   Char91DotmcpChar93ListToolsRouteImport.update({
     id: '/.mcp/list-tools',
     path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
   } as any)
 const AdminPanelRouteRoute = AdminPanelRouteRouteImport.update({
@@ -75,100 +70,15 @@ const AdminPanelRouteRoute = AdminPanelRouteRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminPanelIndexRoute = AdminPanelIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminPanelRouteRoute,
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminPanelTestimonialsRoute = AdminPanelTestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelSkillsRoute = AdminPanelSkillsRouteImport.update({
-  id: '/skills',
-  path: '/skills',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelSettingsRoute = AdminPanelSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelServicesRoute = AdminPanelServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelSeoRoute = AdminPanelSeoRouteImport.update({
-  id: '/seo',
-  path: '/seo',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelSecurityRoute = AdminPanelSecurityRouteImport.update({
-  id: '/security',
-  path: '/security',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelResumeRoute = AdminPanelResumeRouteImport.update({
-  id: '/resume',
-  path: '/resume',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelProjectsRoute = AdminPanelProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelProfileRoute = AdminPanelProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelMessagesRoute = AdminPanelMessagesRouteImport.update({
-  id: '/messages',
-  path: '/messages',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelHobbiesRoute = AdminPanelHobbiesRouteImport.update({
-  id: '/hobbies',
-  path: '/hobbies',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelGalleryRoute = AdminPanelGalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelExperienceRoute = AdminPanelExperienceRouteImport.update({
-  id: '/experience',
-  path: '/experience',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelEducationRoute = AdminPanelEducationRouteImport.update({
-  id: '/education',
-  path: '/education',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelCertificatesRoute = AdminPanelCertificatesRouteImport.update({
-  id: '/certificates',
-  path: '/certificates',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelBlogRoute = AdminPanelBlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelAchievementsRoute = AdminPanelAchievementsRouteImport.update({
-  id: '/achievements',
-  path: '/achievements',
-  getParentRoute: () => AdminPanelRouteRoute,
-} as any)
-const AdminPanelAboutRoute = AdminPanelAboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => AdminPanelRouteRoute,
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
   Char91DotmcpChar93InvokeToolToolRouteImport.update({
@@ -176,10 +86,100 @@ const Char91DotmcpChar93InvokeToolToolRoute =
     path: '/.mcp/invoke-tool/$tool',
     getParentRoute: () => rootRouteImport,
   } as any)
-const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
-  id: '/.lovable/oauth/consent',
-  path: '/.lovable/oauth/consent',
-  getParentRoute: () => rootRouteImport,
+const AdminPanelIndexRoute = AdminPanelIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelAboutRoute = AdminPanelAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelAchievementsRoute = AdminPanelAchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelBlogRoute = AdminPanelBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelCertificatesRoute = AdminPanelCertificatesRouteImport.update({
+  id: '/certificates',
+  path: '/certificates',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelEducationRoute = AdminPanelEducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelExperienceRoute = AdminPanelExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelGalleryRoute = AdminPanelGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelHobbiesRoute = AdminPanelHobbiesRouteImport.update({
+  id: '/hobbies',
+  path: '/hobbies',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelMessagesRoute = AdminPanelMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelProfileRoute = AdminPanelProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelProjectsRoute = AdminPanelProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelResumeRoute = AdminPanelResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelSecurityRoute = AdminPanelSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelSeoRoute = AdminPanelSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelServicesRoute = AdminPanelServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelSettingsRoute = AdminPanelSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelSkillsRoute = AdminPanelSkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => AdminPanelRouteRoute,
+} as any)
+const AdminPanelTestimonialsRoute = AdminPanelTestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => AdminPanelRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -378,11 +378,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -392,25 +392,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/.mcp/list-tools': {
@@ -420,11 +406,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/_panel': {
       id: '/admin/_panel'
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminPanelRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/_panel/': {
@@ -434,116 +448,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPanelIndexRouteImport
       parentRoute: typeof AdminPanelRouteRoute
     }
-    '/admin/_panel/testimonials': {
-      id: '/admin/_panel/testimonials'
-      path: '/testimonials'
-      fullPath: '/admin/testimonials'
-      preLoaderRoute: typeof AdminPanelTestimonialsRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/skills': {
-      id: '/admin/_panel/skills'
-      path: '/skills'
-      fullPath: '/admin/skills'
-      preLoaderRoute: typeof AdminPanelSkillsRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/settings': {
-      id: '/admin/_panel/settings'
-      path: '/settings'
-      fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminPanelSettingsRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/services': {
-      id: '/admin/_panel/services'
-      path: '/services'
-      fullPath: '/admin/services'
-      preLoaderRoute: typeof AdminPanelServicesRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/seo': {
-      id: '/admin/_panel/seo'
-      path: '/seo'
-      fullPath: '/admin/seo'
-      preLoaderRoute: typeof AdminPanelSeoRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/security': {
-      id: '/admin/_panel/security'
-      path: '/security'
-      fullPath: '/admin/security'
-      preLoaderRoute: typeof AdminPanelSecurityRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/resume': {
-      id: '/admin/_panel/resume'
-      path: '/resume'
-      fullPath: '/admin/resume'
-      preLoaderRoute: typeof AdminPanelResumeRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/projects': {
-      id: '/admin/_panel/projects'
-      path: '/projects'
-      fullPath: '/admin/projects'
-      preLoaderRoute: typeof AdminPanelProjectsRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/profile': {
-      id: '/admin/_panel/profile'
-      path: '/profile'
-      fullPath: '/admin/profile'
-      preLoaderRoute: typeof AdminPanelProfileRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/messages': {
-      id: '/admin/_panel/messages'
-      path: '/messages'
-      fullPath: '/admin/messages'
-      preLoaderRoute: typeof AdminPanelMessagesRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/hobbies': {
-      id: '/admin/_panel/hobbies'
-      path: '/hobbies'
-      fullPath: '/admin/hobbies'
-      preLoaderRoute: typeof AdminPanelHobbiesRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/gallery': {
-      id: '/admin/_panel/gallery'
-      path: '/gallery'
-      fullPath: '/admin/gallery'
-      preLoaderRoute: typeof AdminPanelGalleryRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/experience': {
-      id: '/admin/_panel/experience'
-      path: '/experience'
-      fullPath: '/admin/experience'
-      preLoaderRoute: typeof AdminPanelExperienceRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/education': {
-      id: '/admin/_panel/education'
-      path: '/education'
-      fullPath: '/admin/education'
-      preLoaderRoute: typeof AdminPanelEducationRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/certificates': {
-      id: '/admin/_panel/certificates'
-      path: '/certificates'
-      fullPath: '/admin/certificates'
-      preLoaderRoute: typeof AdminPanelCertificatesRouteImport
-      parentRoute: typeof AdminPanelRouteRoute
-    }
-    '/admin/_panel/blog': {
-      id: '/admin/_panel/blog'
-      path: '/blog'
-      fullPath: '/admin/blog'
-      preLoaderRoute: typeof AdminPanelBlogRouteImport
+    '/admin/_panel/about': {
+      id: '/admin/_panel/about'
+      path: '/about'
+      fullPath: '/admin/about'
+      preLoaderRoute: typeof AdminPanelAboutRouteImport
       parentRoute: typeof AdminPanelRouteRoute
     }
     '/admin/_panel/achievements': {
@@ -553,26 +462,117 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPanelAchievementsRouteImport
       parentRoute: typeof AdminPanelRouteRoute
     }
-    '/admin/_panel/about': {
-      id: '/admin/_panel/about'
-      path: '/about'
-      fullPath: '/admin/about'
-      preLoaderRoute: typeof AdminPanelAboutRouteImport
+    '/admin/_panel/blog': {
+      id: '/admin/_panel/blog'
+      path: '/blog'
+      fullPath: '/admin/blog'
+      preLoaderRoute: typeof AdminPanelBlogRouteImport
       parentRoute: typeof AdminPanelRouteRoute
     }
-    '/.mcp/invoke-tool/$tool': {
-      id: '/.mcp/invoke-tool/$tool'
-      path: '/.mcp/invoke-tool/$tool'
-      fullPath: '/.mcp/invoke-tool/$tool'
-      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
-      parentRoute: typeof rootRouteImport
+    '/admin/_panel/certificates': {
+      id: '/admin/_panel/certificates'
+      path: '/certificates'
+      fullPath: '/admin/certificates'
+      preLoaderRoute: typeof AdminPanelCertificatesRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
     }
-    '/.lovable/oauth/consent': {
-      id: '/.lovable/oauth/consent'
-      path: '/.lovable/oauth/consent'
-      fullPath: '/.lovable/oauth/consent'
-      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
-      parentRoute: typeof rootRouteImport
+    '/admin/_panel/education': {
+      id: '/admin/_panel/education'
+      path: '/education'
+      fullPath: '/admin/education'
+      preLoaderRoute: typeof AdminPanelEducationRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/experience': {
+      id: '/admin/_panel/experience'
+      path: '/experience'
+      fullPath: '/admin/experience'
+      preLoaderRoute: typeof AdminPanelExperienceRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/gallery': {
+      id: '/admin/_panel/gallery'
+      path: '/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminPanelGalleryRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/hobbies': {
+      id: '/admin/_panel/hobbies'
+      path: '/hobbies'
+      fullPath: '/admin/hobbies'
+      preLoaderRoute: typeof AdminPanelHobbiesRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/messages': {
+      id: '/admin/_panel/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminPanelMessagesRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/profile': {
+      id: '/admin/_panel/profile'
+      path: '/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof AdminPanelProfileRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/projects': {
+      id: '/admin/_panel/projects'
+      path: '/projects'
+      fullPath: '/admin/projects'
+      preLoaderRoute: typeof AdminPanelProjectsRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/resume': {
+      id: '/admin/_panel/resume'
+      path: '/resume'
+      fullPath: '/admin/resume'
+      preLoaderRoute: typeof AdminPanelResumeRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/security': {
+      id: '/admin/_panel/security'
+      path: '/security'
+      fullPath: '/admin/security'
+      preLoaderRoute: typeof AdminPanelSecurityRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/seo': {
+      id: '/admin/_panel/seo'
+      path: '/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminPanelSeoRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/services': {
+      id: '/admin/_panel/services'
+      path: '/services'
+      fullPath: '/admin/services'
+      preLoaderRoute: typeof AdminPanelServicesRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/settings': {
+      id: '/admin/_panel/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminPanelSettingsRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/skills': {
+      id: '/admin/_panel/skills'
+      path: '/skills'
+      fullPath: '/admin/skills'
+      preLoaderRoute: typeof AdminPanelSkillsRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
+    }
+    '/admin/_panel/testimonials': {
+      id: '/admin/_panel/testimonials'
+      path: '/testimonials'
+      fullPath: '/admin/testimonials'
+      preLoaderRoute: typeof AdminPanelTestimonialsRouteImport
+      parentRoute: typeof AdminPanelRouteRoute
     }
   }
 }
